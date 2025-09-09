@@ -7,6 +7,6 @@
 
 ## To Run a Game
 - Clone the repository
-- Navigate to the desired game folder (e.g **Mini-Games/GameFolder/src**)
+- Navigate to the desired game folder (e.g **Mini-Games/GameFolder/src/gamename.cpp**)
 - Compile the game
 - Run the game
