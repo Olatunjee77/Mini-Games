@@ -1,4 +1,4 @@
-A collection of mini games I created implementing C++ beginner level concepts
+# A collection of mini games I created implementing C++ beginner level concepts
 
 # Games Included
 * Battleship War >> A classic battleship coordinate guessing game against the computer using C++ arrays.
