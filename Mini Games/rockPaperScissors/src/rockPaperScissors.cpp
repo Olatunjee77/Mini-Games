@@ -64,7 +64,7 @@ void showComputerChoice(char computer){
         }
 }
 
-void chooseWinner(char player, char computer){
+void chooseWinner(char player, char computer, int &playerScore, int &computerScore){
     switch(player){
         case 'r':
         case 'R':
@@ -73,9 +73,11 @@ void chooseWinner(char player, char computer){
             }
             else if(computer == 'p'){
                 cout << "You lose!" << endl;
+                computerScore++;
             }
             else{
                 cout << "You win!" << endl;
+                playerScore++;
             }
         break;
 
@@ -83,12 +85,14 @@ void chooseWinner(char player, char computer){
     case 'P':
         if(computer == 'r'){
             cout << "You win!" << endl;
+            playerScore++;
         }
         else if(computer == 'p'){
             cout << "It's a tie!" << endl;
         }
         else{
             cout << "You lose!" << endl;
+            computerScore++;
         }
     break;
 
@@ -96,9 +100,11 @@ void chooseWinner(char player, char computer){
     case 'S':
         if(computer == 'r'){
             cout << "You lose!" << endl;
+            computerScore++;
         }
         else if(computer == 'p'){
             cout << "You win!" << endl;
+            playerScore++;
         }
         else{
             cout << "It'a tie!" << endl;
@@ -116,9 +122,12 @@ int main(){
     char player;
     char computer;
     srand(time (NULL));
+    int playerScore = 0;
+    int computerScore = 0;
 
     do{
         player = userChoice();
+
         if(player == '0') {   // ✅ exit before running game logic
             cout << "\nExiting game... Goodbye!" << endl;
             break;
@@ -127,6 +136,7 @@ int main(){
         cout << endl;
 
         showUserChoice(player);
+
         if(player != 'r' && player != 'R' && player != 'p' && player != 'P'
             && player != 's' && player != 'S') {
             continue;  // Skip to next iteration if input is invalid
@@ -139,9 +149,13 @@ int main(){
 
         cout << endl;
 
-        chooseWinner(player , computer);
+        chooseWinner(player , computer, playerScore, computerScore);
         cout << endl;
     }while(player != '0');
+
+    cout << "\nFinal Scores:" << endl;
+    cout << "Player: " << playerScore << endl;  
+    cout << "Computer: " << computerScore << endl;
     
     return 0;
 
